@@ -1,14 +1,13 @@
 const mongoose=require("mongoose");
 
-const Todo=new mongoose.Schema({
-    task:{
-        type:String,
-        required:true,
-        trim:true,
-        maxLength:30.
-    },
-},
-{timestamps:true}
-);
+const ToDoSchema=new mongoose.Schema({
+    title:String,
+    description:String,
+    createdBy:String,
+    createAt:{
+        type:Date,
+        default:Date.now()
+    }
+});
 
-module.exports=mongoose.model("Todo",Todo);
+module.exports=mongoose.model('ToDo',ToDoSchema);
